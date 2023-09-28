@@ -1,22 +1,23 @@
 package com.ecommerce.domain.users.entities;
 
-import com.ecommerce.domain.users.vo.CellphoneInformation;
 
 public class User {
-    private int idUser;
+    private String idUser;
     private String name;
     private String lastName;
-    private int age;
+    private Integer age;
     private String cityOfBirth;
-    private int idTypeDocument;
+    private String idTypeDocument;
     private String documentNumber;
-    private CellphoneInformation information;
+    private String prefix;
+    private String operator;
+    private String cellphoneNumber;
 
-    public int getIdUser() {
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
@@ -52,11 +53,11 @@ public class User {
         this.cityOfBirth = cityOfBirth;
     }
 
-    public int getIdTypeDocument() {
+    public String getIdTypeDocument() {
         return idTypeDocument;
     }
 
-    public void setIdTypeDocument(int idTypeDocument) {
+    public void setIdTypeDocument(String idTypeDocument) {
         this.idTypeDocument = idTypeDocument;
     }
 
@@ -68,11 +69,49 @@ public class User {
         this.documentNumber = documentNumber;
     }
 
-    public CellphoneInformation getInformation() {
-        return information;
+    public String getPrefix() {
+        return prefix;
     }
 
-    public void setInformation(CellphoneInformation information) {
-        this.information = information;
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+    public String getOperator() {
+        return operator;
+    }
+
+    public void setOperator(String operator) {
+        this.operator = operator;
+    }
+
+    public String getCellphoneNumber() {
+        return cellphoneNumber;
+    }
+
+    public void setCellphoneNumber(String cellphoneNumber) {
+        this.cellphoneNumber = cellphoneNumber;
+    }
+
+    public User(String idUser,
+                String name,
+                String lastName,
+                int age,
+                String cityOfBirth,
+                String idTypeDocument,
+                String documentNumber,
+                String prefix,
+                String operator,
+                String cellphoneNumber) {
+        this.idUser = idUser;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.cityOfBirth = cityOfBirth;
+        this.idTypeDocument = idTypeDocument;
+        this.documentNumber = documentNumber;
+        this.prefix = prefix;
+        this.operator = operator;
+        this.cellphoneNumber = cellphoneNumber;
     }
 }

@@ -13,8 +13,8 @@ import java.util.Optional;
 @Repository
 public class TypeDocumentRepositoryImpl implements TypeDocumentRepository {
 
-    private TypeDocumentCRUD typeDocumentCRUD;
-    private TypeDocumentMapper mapper;
+    private final TypeDocumentCRUD typeDocumentCRUD;
+    private final TypeDocumentMapper mapper;
 
     public TypeDocumentRepositoryImpl(TypeDocumentCRUD typeDocumentCRUD, TypeDocumentMapper mapper) {
         this.typeDocumentCRUD = typeDocumentCRUD;

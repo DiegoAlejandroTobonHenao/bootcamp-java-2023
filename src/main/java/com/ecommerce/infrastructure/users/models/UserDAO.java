@@ -9,17 +9,17 @@ import java.util.Date;
 public class UserDAO {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id_user")
-    private int idUser;
+    private String idUser;
     private String name;
     @Column(name = "last_name")
     private String lastName;
-    private int age;
+    private Integer age;
     @Column(name = "city_of_birth")
     private String cityOfBirth;
     @Column(name = "id_type_document")
-    private int idTypeDocument;
+    private String idTypeDocument;
     @Column(name = "document_number")
     private String documentNumber;
     private String prefix;
@@ -33,11 +33,39 @@ public class UserDAO {
     @Column(name = "is_active")
     private boolean isActive;
 
-    public int getIdUser() {
+    public UserDAO(String idUser,
+                   String name,
+                   String lastName,
+                   Integer age,
+                   String cityOfBirth,
+                   String idTypeDocument,
+                   String documentNumber,
+                   String prefix,
+                   String operator,
+                   String cellphoneNumber) {
+        this.idUser = idUser;
+        this.name = name;
+        this.lastName = lastName;
+        this.age = age;
+        this.cityOfBirth = cityOfBirth;
+        this.idTypeDocument = idTypeDocument;
+        this.documentNumber = documentNumber;
+        this.prefix = prefix;
+        this.operator = operator;
+        this.cellphoneNumber = cellphoneNumber;
+        this.isActive = true;
+        this.createdAt = new Date();
+        this.updatedAt = new Date();
+    }
+
+    public UserDAO() {
+    }
+
+    public String getIdUser() {
         return idUser;
     }
 
-    public void setIdUser(int idUser) {
+    public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
 
@@ -57,11 +85,11 @@ public class UserDAO {
         this.lastName = lastName;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -73,11 +101,11 @@ public class UserDAO {
         this.cityOfBirth = cityOfBirth;
     }
 
-    public int getIdTypeDocument() {
+    public String getIdTypeDocument() {
         return idTypeDocument;
     }
 
-    public void setIdTypeDocument(int idTypeDocument) {
+    public void setIdTypeDocument(String idTypeDocument) {
         this.idTypeDocument = idTypeDocument;
     }
 

@@ -9,8 +9,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/documents")
 public class TypeDocumentController {
-
-    private TypeDocumentUseCase useCase;
+    private final TypeDocumentUseCase useCase;
 
     public TypeDocumentController(TypeDocumentUseCase useCase) {
         this.useCase = useCase;

@@ -1,8 +1,10 @@
 package com.ecommerce.infrastructure.typedocument.models;
 
+import com.ecommerce.infrastructure.users.models.UserDAO;
 import jakarta.persistence.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TBL_TYPES_DOCUMENT")
@@ -19,6 +21,8 @@ public class TypeDocumentDAO {
     private Date createdAt;
     @Column(name = "is_active")
     private boolean isActive;
+    @OneToMany(mappedBy = "typeDocumentDAO")
+    private List<UserDAO> users;
 
     public TypeDocumentDAO(Integer idTypeDocument, String name) {
         this.idTypeDocument = idTypeDocument;

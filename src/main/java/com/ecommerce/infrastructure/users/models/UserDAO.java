@@ -1,5 +1,6 @@
 package com.ecommerce.infrastructure.users.models;
 
+import com.ecommerce.infrastructure.typedocument.models.TypeDocumentDAO;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -19,7 +20,7 @@ public class UserDAO {
     @Column(name = "city_of_birth")
     private String cityOfBirth;
     @Column(name = "id_type_document")
-    private String idTypeDocument;
+    private Integer idTypeDocument;
     @Column(name = "document_number")
     private String documentNumber;
     private String prefix;
@@ -33,12 +34,24 @@ public class UserDAO {
     @Column(name = "is_active")
     private boolean isActive;
 
+    @ManyToOne
+    @JoinColumn(name = "id_type_document", insertable = false, updatable = false)
+    private TypeDocumentDAO typeDocumentDAO;
+
+    public TypeDocumentDAO getTypeDocumentDAO() {
+        return typeDocumentDAO;
+    }
+
+    public void setTypeDocumentDAO(TypeDocumentDAO typeDocumentDAO) {
+        this.typeDocumentDAO = typeDocumentDAO;
+    }
+
     public UserDAO(String idUser,
                    String name,
                    String lastName,
                    Integer age,
                    String cityOfBirth,
-                   String idTypeDocument,
+                   Integer idTypeDocument,
                    String documentNumber,
                    String prefix,
                    String operator,
@@ -101,11 +114,11 @@ public class UserDAO {
         this.cityOfBirth = cityOfBirth;
     }
 
-    public String getIdTypeDocument() {
+    public Integer getIdTypeDocument() {
         return idTypeDocument;
     }
 
-    public void setIdTypeDocument(String idTypeDocument) {
+    public void setIdTypeDocument(Integer idTypeDocument) {
         this.idTypeDocument = idTypeDocument;
     }
 

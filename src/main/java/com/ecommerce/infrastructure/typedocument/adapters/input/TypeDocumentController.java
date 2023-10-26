@@ -1,7 +1,9 @@
 package com.ecommerce.infrastructure.typedocument.adapters.input;
 
 import com.ecommerce.application.typedocument.ports.input.TypeDocumentUseCase;
+import com.ecommerce.commons.ResponseData;
 import com.ecommerce.domain.typedocument.entities.TypeDocument;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,13 +17,17 @@ public class TypeDocumentController {
         this.useCase = useCase;
     }
 
-    @GetMapping("/all")
-    public List<TypeDocument> getAll() {
-        return useCase.getAll();
+    @GetMapping(value = "/all", produces = "application/json")
+    public ResponseData getAll() {
+        return new ResponseData(
+                useCase.getAll(),
+                HttpStatus.OK.toString(),
+                "Documentos recuperados satisfactoriamente"
+        );
     }
 
     @PostMapping("/create")
     public TypeDocument create(@RequestBody TypeDocument body) {
-        return useCase.save(body);
+        return ;
     }
 }

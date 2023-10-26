@@ -1,17 +1,33 @@
 package com.ecommerce.domain.users.entities;
 
 
+import com.ecommerce.domain.typedocument.entities.TypeDocument;
+
 public class User {
     private String idUser;
     private String name;
     private String lastName;
     private Integer age;
     private String cityOfBirth;
-    private String idTypeDocument;
+    private Integer idTypeDocument;
     private String documentNumber;
     private String prefix;
     private String operator;
     private String cellphoneNumber;
+
+    private TypeDocument typeDocument;
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public TypeDocument getTypeDocument() {
+        return typeDocument;
+    }
+
+    public void setTypeDocument(TypeDocument typeDocument) {
+        this.typeDocument = typeDocument;
+    }
 
     public String getIdUser() {
         return idUser;
@@ -53,11 +69,11 @@ public class User {
         this.cityOfBirth = cityOfBirth;
     }
 
-    public String getIdTypeDocument() {
+    public Integer getIdTypeDocument() {
         return idTypeDocument;
     }
 
-    public void setIdTypeDocument(String idTypeDocument) {
+    public void setIdTypeDocument(Integer idTypeDocument) {
         this.idTypeDocument = idTypeDocument;
     }
 
@@ -98,7 +114,7 @@ public class User {
                 String lastName,
                 int age,
                 String cityOfBirth,
-                String idTypeDocument,
+                Integer idTypeDocument,
                 String documentNumber,
                 String prefix,
                 String operator,
